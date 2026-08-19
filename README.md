@@ -13,10 +13,11 @@ or pixel in a 3D scene.
 
 Covers indoor & outdoor scenes, point-cloud / voxel / range-image / hybrid
 representations, transformer & foundation models, zero-shot / open-vocabulary
-segmentation, and the adjacent task of 3D occupancy prediction.
+segmentation, and the adjacent tasks of 3D occupancy prediction and LLM-based
+3D understanding.
 
-> **Status**: actively maintained research snapshot. Verify numbers before
-> citing them in papers — leaderboards change fast!
+> **Status**: actively maintained research snapshot (last verified 2026-08).
+> Leaderboards move fast — verify numbers before citing them in papers.
 
 ---
 
@@ -38,17 +39,19 @@ segmentation, and the adjacent task of 3D occupancy prediction.
 
 ## 🏆 SOTA at a Glance
 
-*Representative state-of-the-art results (verified [date]). Full details and
-per-paper numbers live in [papers.md](papers.md) and [benchmarks.md](benchmarks.md).*
+*Representative state-of-the-art results (verified snapshot: 2026-08). Full
+details, caveats, and per-paper numbers live in [benchmarks.md](benchmarks.md).*
 
 | Task / Dataset | Metric | Best method | Reported result |
 | --- | --- | --- | --- |
-| SemanticKITTI (val) | mIoU | *TBD* | *TBD* |
-| SemanticKITTI (test) | mIoU | *TBD* | *TBD* |
-| ScanNet (val) | mIoU | *TBD* | *TBD* |
-| S3DIS (Area 5) | mIoU | *TBD* | *TBD* |
-| nuScenes lidarseg (val) | mIoU | *TBD* | *TBD* |
-| Waymo (val) | mIoU | *TBD* | *TBD* |
+| SemanticKITTI (test, single-scan) | mIoU | LSK3DNet | **75.6** |
+| SemanticKITTI (test, multi-scan) | mIoU | MemorySeg | **58.3** |
+| SemanticKITTI (val) | mIoU | PTv3 + PPT | **72.3** |
+| ScanNet (val) | mIoU | DITR | **80.5** |
+| ScanNet (test) | mIoU | Volt | **80.5** |
+| S3DIS (Area 5) | mIoU | Sonata + PTv3 | **76.0** |
+| nuScenes lidarseg (test) | mIoU | DITR | **85.1** |
+| Waymo 2024 challenge | 1st place | PTv3 Extreme | — |
 
 ---
 
