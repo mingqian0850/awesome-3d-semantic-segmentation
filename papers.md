@@ -45,7 +45,7 @@ page (title, first author, venue, year, links, representative metrics).
 
 ## 3. Projection methods (range image / BEV)
 
-- **RangeNet++: Fast and Accurate LiDAR Semantic Segmentation** — Milioto *et al.*, IROS 2019. Range-image projection + fully-conv net + kNN-based post-processing; the real-time baseline of the range-image line. [Official PDF](https://www.ipb.uni-bonn.de/wp-content/papercite-data/pdf/milioto2019iros.pdf) · [Code](https://github.com/PRBonn/lidar-bonnetal). SemanticKITTI test single-scan 52.2 (with kNN).
+- **RangeNet++: Fast and Accurate LiDAR Semantic Segmentation** — Milioto *et al.*, IROS 2019. Range-image projection + fully-conv net + kNN-based post-processing; the real-time baseline of the range-image line. No arXiv preprint (the circulating arXiv:1903.03273 is actually *FastDepth*). [Official PDF](https://www.ipb.uni-bonn.de/wp-content/papercite-data/pdf/milioto2019iros.pdf) · [Code](https://github.com/PRBonn/lidar-bonnetal). SemanticKITTI test single-scan 52.2 (with kNN).
 
 - **SqueezeSegV3: Spatially-Adaptive Convolution for Efficient Point-Cloud Segmentation** — Xu *et al.*, ECCV 2020. Spatially-adaptive convolution (SAC) for range-image features. [arXiv:2004.01803](https://arxiv.org/abs/2004.01803) · [Code](https://github.com/chenfengxu714/SqueezeSegV3). SemanticKITTI test single-scan 55.9 (SSGV3-53, kNN) / 52.9 (no kNN).
 
@@ -85,7 +85,7 @@ page (title, first author, venue, year, links, representative metrics).
 
 - **ULIP: Learning a Unified Representation of Language, Images, and Point Clouds for 3D Understanding** — Xue *et al.*, CVPR 2023. Image-bridged tri-modal contrastive pre-training (language–image–point). [arXiv:2212.05171](https://arxiv.org/abs/2212.05171) · [Code](https://github.com/salesforce/ULIP). Zero-/few-shot classification benchmarks.
 
-- **CLIP2Scene: Towards Label-efficient 3D Scene Understanding by CLIP** — Chen *et al.*, CVPR 2023. CLIP knowledge distilled into 3D networks with cross-modal & spatio-temporal consistency + self-training. [arXiv:2301.04926](https://arxiv.org/abs/2301.04926). nuScenes val: 1% labels 56.3 / 100% 71.5; SemanticKITTI val: 1% 42.6 / 100% 55.0; zero-shot nuScenes 20.8.
+- **CLIP2Scene: Towards Label-efficient 3D Scene Understanding by CLIP** — Chen *et al.*, CVPR 2023. CLIP knowledge distilled into 3D networks with cross-modal & spatio-temporal consistency + self-training. [arXiv:2301.04926](https://arxiv.org/abs/2301.04926). nuScenes val: 1% labels 56.3 / 100% 71.5; SemanticKITTI val: 1% 42.6 / 100% 55.0; ScanNet val: 5% 48.4 / 100% 65.1; zero-shot nuScenes 20.8 / ScanNet 25.1.
 
 - **ConceptFusion: Open-set Multimodal 3D Mapping** — Jatavallabhula *et al.*, RSS 2023. Open-set 3D semantic maps from pre-trained vision-language features. [arXiv:2302.07241](https://arxiv.org/abs/2302.07241) · [Code](https://github.com/concept-fusion/concept-fusion). Replica open-vocab f-mIoU 38.70 (w/ SAM).
 
@@ -93,7 +93,7 @@ page (title, first author, venue, year, links, representative metrics).
 
 - **OpenMask3D: Open-Vocabulary 3D Instance Segmentation** — Takmaz *et al.*, NeurIPS 2023. Class-agnostic 3D instance masks + multi-view fused CLIP features. [arXiv:2306.13631](https://arxiv.org/abs/2306.13631). ScanNet200 val: AP 15.4 / AP50 19.9 / AP25 23.1.
 
-- **RegionPLC: Regional Point-Language Contrastive Learning for Open-World 3D Scene Understanding** — Yang *et al.*, CVPR 2024 (arXiv 2023). Regional point-language contrastive learning + open-vocabulary expansion. [arXiv:2304.00962](https://arxiv.org/abs/2304.00962). ScanNet val zero-shot: hIoU 69.4, novel-class mIoU 70.7.
+- **RegionPLC: Regional Point-Language Contrastive Learning for Open-World 3D Scene Understanding** — Yang *et al.*, CVPR 2024 (arXiv 2023). Regional point-language contrastive learning + open-vocabulary expansion. [arXiv:2304.00962](https://arxiv.org/abs/2304.00962). ScanNet val zero-shot: hIoU 69.4, novel-class mIoU 70.7; annotation-free mIoU 59.6.
 
 - **SegPoint: Segment Any Point Cloud via Large Language Model** — He *et al.*, ECCV 2024. LLM-unified instruction/reference-driven point-cloud segmentation. [arXiv:2407.13761](https://arxiv.org/abs/2407.13761) · [Code](https://github.com/heshuting555/SegPoint).
 

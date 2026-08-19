@@ -29,11 +29,11 @@ plus a state-of-the-art reference table and a quick metrics primer.
 
 | Task | Dataset | Metric | Best method | Result | Source |
 | --- | --- | --- | --- | --- | --- |
-| LiDAR segmentation (single-scan) | SemanticKITTI | mIoU | LSK3DNet (CVPR 2024) | **75.6 (test)** | [Official board](http://semantic-kitti.org/tasks.html) / [semantic_single.json](http://semantic-kitti.org/data/semantic_single.json) · [Paper](https://arxiv.org/abs/2403.15173) |
+| LiDAR segmentation (single-scan) | SemanticKITTI | mIoU | LSK3DNet (CVPR 2024) | **75.6 (test)** | [Official board](http://semantic-kitti.org/tasks.html) / [semantic_single.json](http://semantic-kitti.org/data/semantic_single.json) (2nd: DITR 74.4; 3rd: 2DPASS 72.9) · [Paper](https://arxiv.org/abs/2403.15173) |
 | LiDAR segmentation (multi-scan) | SemanticKITTI | mIoU | MemorySeg (ICCV 2023) | **58.3 (test)** | [Official board](http://semantic-kitti.org/tasks.html) / [semantic_multi.json](http://semantic-kitti.org/data/semantic_multi.json) · [Paper](https://openaccess.thecvf.com/content/ICCV2023/papers/Li_MemorySeg_Online_LiDAR_Semantic_Segmentation_with_a_Latent_Memory_ICCV_2023_paper.pdf) |
 | LiDAR segmentation (val) | SemanticKITTI | mIoU | PTv3 + PPT | **72.3 (val)** | [PTv3 paper, Table 21](https://arxiv.org/abs/2312.10035) |
 | Indoor segmentation (val) | ScanNet v2 | mIoU | DITR: DINO in the Room (3DV 2026) | **80.5 (val)** | [Paper, Table 1](https://arxiv.org/abs/2503.18944) |
-| Indoor segmentation (test) | ScanNet v2 | mIoU | Volt: Volume Transformer | **80.5 (test)** | [ScanNet official benchmark](https://kaldir.vc.in.tum.de/scannet_benchmark/semantic_label_3d) (2nd: PTv3-PPT-ALC 79.8; PTv3+PPT submission [#1719](https://kaldir.vc.in.tum.de/scannet_benchmark/result_details?id=1719)) |
+| Indoor segmentation (test) | ScanNet v2 | mIoU | Volt: Volume Transformer | **80.5 (test)** | [ScanNet official benchmark](https://kaldir.vc.in.tum.de/scannet_benchmark/semantic_label_3d) (2nd: PTv3-PPT-ALC 79.8; 3rd: DITR 79.7; PTv3+PPT submission [#1719](https://kaldir.vc.in.tum.de/scannet_benchmark/result_details?id=1719)) |
 | Indoor segmentation | S3DIS Area 5 | mIoU | Sonata + PTv3 (CVPR 2025) | **76.0 (Area 5)** | [Sonata paper, Table 6](https://arxiv.org/abs/2503.16429) (6-fold 82.3) |
 | LiDAR segmentation (lidarseg) | nuScenes | mIoU | DITR: DINO in the Room | **85.1 (test)** | [Paper, Table 2](https://arxiv.org/abs/2503.18944) (val 84.2; PTv3+PPT 83.0 official test) |
 
