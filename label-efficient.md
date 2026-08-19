@@ -152,6 +152,7 @@ SAM-assisted auto-labeling, plus the annotation tools themselves.
 | point_labeler (SemanticKITTI) | [jbehley/point_labeler](https://github.com/jbehley/point_labeler) | C++ | 750 | Jens Behley's point-level semantic labeling tool (PCL/Qt); used to annotate **SemanticKITTI itself** | slow |
 | interSeg3D-Studio | [zh-plus/interSeg3D-Studio](https://github.com/zh-plus/interSeg3D-Studio) | Python | 10 | Web interactive 3D segmentation labeling; AGILE3D/PinPoint3D click-based segmentation + Gemini recognition | active |
 | antsy3d | [alvinwan/antsy3d](https://github.com/alvinwan/antsy3d) | JavaScript | 36 | Browser point-cloud labeling with "fat markers" for instance segmentation | stale |
+| L-CAS cloud_annotation_tool | [yzrobot/cloud_annotation_tool](https://github.com/yzrobot/cloud_annotation_tool) | C++ | 290 | Semi-automatic: point clouds pre-clustered into candidates, annotate by cluster id/class/visibility (L-CAS 3D dataset; ROS/PCL) | stale |
 
 ### Open-source, bbox-oriented (detection, not segmentation)
 
@@ -164,6 +165,9 @@ SAM-assisted auto-labeling, plus the annotation tools themselves.
 | LATTE | [bernwang/latte](https://github.com/bernwang/latte) | Python | 450 | Camera-LiDAR fusion, one-click 3D boxes + tracking ([arXiv:1904.09085](https://arxiv.org/abs/1904.09085)) | stale |
 | SAnE | [hasanari/sane](https://github.com/hasanari/sane) | Python | 85 | Smart Annotation and Evaluation (IEEE Access 2020); PointCNN denoising + guided tracking, 4.44× faster | stale |
 | ReBound | [ajedgley/ReBound](https://github.com/ajedgley/ReBound) | Python | 30 | LiDAR visualization/labeling designed for **active-learning** sample selection | stale |
+| Earthwings/annotate | [Earthwings/annotate](https://github.com/Earthwings/annotate) | C++ | 180 | Creates 3D label boxes (KITTI style) inside RViz | stale |
+| rviz_cloud_annotation | [RMonica/rviz_cloud_annotation](https://github.com/RMonica/rviz_cloud_annotation) | C++ | 160 | RViz-based point-cloud annotation plugin | stale |
+| caliperai-gt | [caliperai-ai/caliperai-gt](https://github.com/caliperai-ai/caliperai-gt) | TypeScript | 10 | New open-source sensor-fusion labeling platform: LiDAR + camera 3D cuboids | active |
 
 ### General platforms with point-cloud support
 
