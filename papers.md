@@ -151,6 +151,8 @@ page (title, first author, venue, year, links, representative metrics).
 
 - **Point Transformer V3 Extreme: 1st Place Solution for 2024 Waymo Open Dataset Challenge in Semantic Segmentation** — Wu *et al.*, arXiv 2024. Ultra-large-scale PTv3 training variant; **1st place** in the 2024 Waymo semantic-segmentation challenge. [arXiv:2407.15282](https://arxiv.org/abs/2407.15282) · [Challenge](https://waymo.com/open/challenges/2024/3d-semantic-segmentation/).
 
+- **vFusedSeg3D: 3rd Place Solution for 2024 Waymo Open Dataset Challenge in Semantic Segmentation** — arXiv 2024. View-based fusion of LiDAR and camera (vision) features for 3D semantic segmentation. [arXiv:2408.15254](https://arxiv.org/abs/2408.15254).
+
 ---
 
 ## Verification notes
