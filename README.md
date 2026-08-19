@@ -67,6 +67,23 @@ details, caveats, and per-paper numbers live in [benchmarks.md](benchmarks.md).*
 
 ---
 
+## 🤖 Automation
+
+The repo ships with a **paper watcher** ([`.github/workflows/paper-watch.yml`](.github/workflows/paper-watch.yml)):
+
+- **Every Monday 01:00 UTC** (and manually via *Actions → paper-watch → Run workflow*),
+  it queries the [Hugging Face Papers API](https://huggingface.co/papers) for new
+  3D semantic segmentation papers (point clouds / LiDAR / voxels / range images).
+- Papers already listed in [`papers.md`](papers.md) are excluded automatically;
+  obviously 2D/medical papers are filtered out.
+- If new candidates are found, a digest **issue** is opened (or the existing
+  open digest is updated) with titles, arXiv links, and abstracts — review,
+  verify, then add the good ones to `papers.md` and close the issue.
+- Run locally: `python3 scripts/arxiv_paper_finder.py --days 60` (unit tests:
+  `python3 -m unittest discover -s tests`).
+
+---
+
 ## ✨ Related awesome lists
 
 - [awesome-point-cloud-analysis](https://github.com/Yochengliu/awesome-point-cloud-analysis)
