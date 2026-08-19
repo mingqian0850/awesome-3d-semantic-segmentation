@@ -1,0 +1,50 @@
+name: paper-watch
+
+# Automatically detect new arXiv papers on 3D semantic segmentation and open
+# an issue with a candidate list, excluding papers already in papers.md.
+# Run manually: Actions -> paper-watch -> Run workflow.
+
+on:
+  schedule:
+    # Every Monday at 01:00 UTC
+    - cron: "0 1 * * 1"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Fetch recent papers from arXiv
+        run: python3 scripts/arxiv_paper_finder.py --days 7 --exclude papers.md --output new_papers.md
+
+      - name: Open or update the digest issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ISSUE_TITLE="📚 New 3D semantic segmentation papers (auto-detected)"
+          if [ ! -s new_papers.md ]; then
+            echo "::notice::No new papers this run — skipping."
+            exit 0
+          fi
+          # Reuse an existing open digest issue instead of stacking duplicates.
+          EXISTING=$(gh issue list --state open --search "in:title \"${ISSUE_TITLE}\"" --json number --jq '.[0].number' 2>/dev/null || true)
+          BODY="$(cat new_papers.md)"
+          if [ -n "$EXISTING" ]; then
+            gh issue edit "$EXISTING" --body "$BODY"
+            echo "::notice::Updated existing digest issue #$EXISTING"
+          else
+            gh label create "automated" --force >/dev/null 2>&1 || true
+            gh issue create --title "$ISSUE_TITLE" --body "$BODY" --label "automated"
+          fi
