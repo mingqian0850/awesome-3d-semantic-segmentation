@@ -27,6 +27,9 @@ segmentation, and the adjacent tasks of 3D occupancy prediction and LLM-based
 - [📄 Papers](papers.md)
   - Point-based methods · Voxel / sparse-conv methods · Projection methods ·
     Transformers & hybrids · Zero-shot / foundation models · 3D occupancy
+- [🏷️ Label-Efficient Learning](label-efficient.md)
+  - Semi/weakly-supervised · Active learning · Self-supervised · Zero-shot ·
+    Distillation · SAM in 3D · Auto-labeling · Annotation tools
 - [🗂️ Datasets](datasets.md)
   - Indoor · Outdoor LiDAR · Aerial / urban MLS · Synthetic · RGB-D
 - [📊 Benchmarks & Leaderboards](benchmarks.md)
@@ -60,6 +63,7 @@ details, caveats, and per-paper numbers live in [benchmarks.md](benchmarks.md).*
 | File | Contents |
 | --- | --- |
 | [`papers.md`](papers.md) | Research papers, grouped by methodological family and year |
+| [`label-efficient.md`](label-efficient.md) | Label-efficient learning & efficient annotation (semi/weak supervision, active learning, SAM-assisted labeling, tools) |
 | [`datasets.md`](datasets.md) | Datasets with modality, scale, classes, and links |
 | [`benchmarks.md`](benchmarks.md) | Leaderboards, evaluation metrics, and official toolkits |
 | [`projects.md`](projects.md) | Open-source frameworks and codebases |
