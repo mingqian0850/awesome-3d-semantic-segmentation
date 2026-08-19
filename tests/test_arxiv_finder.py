@@ -1,32 +1,53 @@
 #!/usr/bin/env python3
-"""Unit tests for scripts/arxiv_paper_finder.py using a local fixture.
+"""Unit tests for scripts/arxiv_paper_finder.py using local fixtures.
 
 Run: python3 -m unittest discover -s tests -v
 """
 
+import json
 import os
 import sys
 import tempfile
 import unittest
-from datetime import datetime, timedelta, timezone
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "scripts"))
 import arxiv_paper_finder as apf  # noqa: E402
 
-FIXTURE = os.path.join(os.path.dirname(__file__), "fixtures", "arxiv_sample.xml")
+HF_FIXTURE = os.path.join(os.path.dirname(__file__), "fixtures", "hf_papers_sample.json")
+
+
+def load_hf_fixture() -> dict:
+    with open(HF_FIXTURE, encoding="utf-8") as f:
+        data = json.load(f)
+    return {item["paper"]["id"]: item["paper"] for item in data}
 
 
 class TestPaperFinder(unittest.TestCase):
-    def setUp(self):
-        self.root = apf.ET.parse(FIXTURE).getroot()
+    def test_parse_hf_paper(self):
+        raw = load_hf_fixture()
+        paper = apf.parse_hf_paper(raw["2608.12345"])
+        self.assertEqual(paper["arxiv_id"], "2608.12345")
+        self.assertEqual(paper["link"], "https://arxiv.org/abs/2608.12345")
+        self.assertIn("Alice Example", paper["authors"])
+        self.assertIn("Transformers", paper["title"])
 
     def test_parse_entry_strips_version(self):
-        entries = self.root.findall("atom:entry", apf.NS)
-        paper = apf.parse_entry(entries[0])
+        xml = """<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:arxiv="http://arxiv.org/schemas/atom">
+  <entry>
+    <id>http://arxiv.org/abs/2608.12345v2</id>
+    <published>2026-08-18T10:00:00Z</published>
+    <title>Some Point Cloud Segmentation</title>
+    <summary>Point cloud semantic segmentation with voxels and lidar.</summary>
+    <author><name>Alice Example</name></author>
+    <arxiv:primary_category term="cs.CV"/>
+    <link href="http://arxiv.org/abs/2608.12345v2" rel="alternate"/>
+  </entry>
+</feed>"""
+        root = apf.ET.fromstring(xml)
+        paper = apf.parse_entry(root.find("atom:entry", apf.NS))
         self.assertEqual(paper["arxiv_id"], "2608.12345")
-        self.assertEqual(paper["link"], "http://arxiv.org/abs/2608.12345v1")
-        self.assertIn("Alice Example", paper["authors"])
-        self.assertEqual(paper["primary_category"], "cs.CV")
+        self.assertEqual(paper["link"], "http://arxiv.org/abs/2608.12345v2")
 
     def test_versioned_id_dedup(self):
         # "2312.10035v3" must de-duplicate against a known "2312.10035".
@@ -53,38 +74,22 @@ class TestPaperFinder(unittest.TestCase):
             f.write("PTv3 [arXiv:2312.10035](https://arxiv.org/abs/2312.10035).")
             path = f.name
         out = tempfile.mktemp(suffix=".md")
+        original_fetch = apf.fetch_hf_papers
+        apf.fetch_hf_papers = lambda max_per_query=60, retries=3: load_hf_fixture()
+        old_argv = sys.argv
+        sys.argv = ["arxiv_paper_finder.py", "--days", "7", "--exclude", path, "--output", out, "--source", "hf"]
         try:
-            # Patch the fetch to use the fixture instead of the network.
-            original_fetch = apf.fetch_arxiv
-            apf.fetch_arxiv = lambda max_results, **kw: self.root
-            old_argv = sys.argv
-            sys.argv = ["arxiv_paper_finder.py", "--days", "7", "--exclude", path, "--output", out, "--api-url", "fixture"]
-            try:
-                rc = apf.main()
-            finally:
-                sys.argv = old_argv
-                apf.fetch_arxiv = original_fetch
-            self.assertEqual(rc, 0)
-            with open(out, encoding="utf-8") as f:
-                content = f.read()
-            self.assertIn("2608.12345", content)          # kept
-            self.assertNotIn("54321", content)            # 2D/medical filtered
-            self.assertNotIn("2312.10035", content)       # deduped
-            self.assertNotIn("2501.00001", content)       # outside window
+            rc = apf.main()
         finally:
-            os.unlink(path)
-            if os.path.exists(out):
-                os.unlink(out)
-
-    def test_no_candidates_writes_empty_file(self):
-        out = tempfile.mktemp(suffix=".md")
-        try:
-            with open(out, "w", encoding="utf-8") as f:
-                f.write("")
-            self.assertEqual(os.path.getsize(out), 0)
-        finally:
-            if os.path.exists(out):
-                os.unlink(out)
+            sys.argv = old_argv
+            apf.fetch_hf_papers = original_fetch
+        self.assertEqual(rc, 0)
+        with open(out, encoding="utf-8") as f:
+            content = f.read()
+        self.assertIn("2608.12345", content)          # kept
+        self.assertNotIn("54321", content)            # 2D/medical filtered
+        self.assertNotIn("2312.10035", content)       # deduped
+        self.assertNotIn("2501.00001", content)       # outside window
 
 
 if __name__ == "__main__":

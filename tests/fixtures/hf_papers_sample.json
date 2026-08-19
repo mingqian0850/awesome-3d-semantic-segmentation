@@ -1,0 +1,38 @@
+[
+  {
+    "paper": {
+      "id": "2608.12345",
+      "authors": [{"name": "Alice Example"}, {"name": "Bob Test"}, {"name": "Carol Verify"}],
+      "publishedAt": "2026-08-18T10:00:00.000Z",
+      "title": "Example: Semantic Segmentation of Point Clouds with Serialized Transformers",
+      "summary": "We propose a transformer architecture for semantic segmentation of large-scale point clouds and LiDAR scenes, achieving state-of-the-art results on outdoor benchmarks."
+    }
+  },
+  {
+    "paper": {
+      "id": "2608.54321",
+      "authors": [{"name": "Doctor Med"}],
+      "publishedAt": "2026-08-17T09:00:00.000Z",
+      "title": "Medical Image Semantic Segmentation of CT Scans with 3D Convolutions",
+      "summary": "We segment organs in CT scan volumes using 3D convolutional networks. MRI and whole slide imaging extensions are discussed."
+    }
+  },
+  {
+    "paper": {
+      "id": "2312.10035",
+      "authors": [{"name": "Known Author"}],
+      "publishedAt": "2026-08-16T08:00:00.000Z",
+      "title": "Point Transformer V3 Revisited: Simpler, Faster, Stronger",
+      "summary": "We revisit point cloud semantic segmentation with serialized neighborhood encoding for LiDAR and indoor scenes."
+    }
+  },
+  {
+    "paper": {
+      "id": "2501.00001",
+      "authors": [{"name": "Old Author"}],
+      "publishedAt": "2025-01-01T00:00:00.000Z",
+      "title": "Old Paper on Point Cloud Semantic Segmentation",
+      "summary": "A dated work on semantic segmentation of point clouds outside the look-back window."
+    }
+  }
+]

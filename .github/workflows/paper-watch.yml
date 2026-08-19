@@ -26,8 +26,8 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Fetch recent papers from arXiv
-        run: python3 scripts/arxiv_paper_finder.py --days 7 --exclude papers.md --output new_papers.md
+      - name: Fetch recent papers
+        run: python3 scripts/arxiv_paper_finder.py --days 60 --exclude papers.md --output new_papers.md
 
       - name: Open or update the digest issue
         env:
