@@ -16,7 +16,7 @@ SAM-assisted auto-labeling, plus the annotation tools themselves.
 ## 1. Semi-supervised LiDAR / point-cloud segmentation
 
 **Foundations**
-- **LaserMix for Semi-Supervised LiDAR Semantic Segmentation** — Kong *et al.*, CVPR 2023 (Highlight). Mixes laser beams of different LiDAR scans with consistency/confidence regularization; representation-agnostic (range view / voxel); introduces the **ScribbleKITTI** scribble-label benchmark. [arXiv:2207.00026](https://arxiv.org/abs/2207.00026) · [Code](https://github.com/ldkong1205/LaserMix). **+10.8% avg mIoU** over the supervised baseline; reaches fully-supervised parity with **2–5× fewer labels**.
+- **LaserMix for Semi-Supervised LiDAR Semantic Segmentation** — Kong *et al.*, CVPR 2023 (Highlight). Mixes laser beams of different LiDAR scans with consistency/confidence regularization; representation-agnostic (range view / voxel); evaluated on the **ScribbleKITTI** scribble-label benchmark (introduced by Unal *et al.*, CVPR 2022 — see [annotation-methods.md §6](annotation-methods.md)). [arXiv:2207.00026](https://arxiv.org/abs/2207.00026) · [Code](https://github.com/ldkong1205/LaserMix). **+10.8% avg mIoU** over the supervised baseline; reaches fully-supervised parity with **2–5× fewer labels**.
 
 - **Towards Semi-supervised Dual-modal Semantic Segmentation (PD-Net)** — Dong *et al.*, IEEE TMM 2025. 2D-3D dual-modal semi-supervision: point-cloud + image dual streams, pseudo-label self-training, dual-modal fusion. [arXiv:2409.13325](https://arxiv.org/abs/2409.13325).
 
@@ -210,7 +210,7 @@ SAM-assisted auto-labeling, plus the annotation tools themselves.
 ## ⚠️ Could not verify
 
 - **WAP (Weakly-supervised Affinity Propagation)** — no matching 3D point-cloud segmentation paper found after multiple search rounds. Closest actual works: *Densify Your Labels* and *Multi-modality Affinity Inference* (AAAI 2024). Do not list "WAP" as-is.
-- **ScribbleSup3D** — no such paper; the 3D scribble benchmark is **ScribbleKITTI** (introduced in LaserMix, CVPR 2023).
+- **ScribbleSup3D** — no such paper; the 3D scribble benchmark is **ScribbleKITTI** (introduced by Unal *et al.*, CVPR 2022, [arXiv:2203.08537](https://arxiv.org/abs/2203.08537); used by LaserMix, CVPR 2023).
 - **GP-S3Net** — verified as a **fully-supervised** panoptic network (ICCV 2021, [arXiv:2108.08401](https://arxiv.org/abs/2108.08401)), not semi-supervised — excluded from §1.
 - **SAM3D venue** — arXiv 2023 only (dblp: CoRR); the CVPR 2024 paper with a similar name is **SAI3D** ("Segment Any Instance in 3D Scenes").
 - **SAM-Gaussians** — renamed to **SAGD** (IEEE TIP 2026); listed under §7 as SAGD.

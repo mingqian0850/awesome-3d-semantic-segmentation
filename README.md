@@ -30,6 +30,12 @@ segmentation, and the adjacent tasks of 3D occupancy prediction and LLM-based
 - [🏷️ Label-Efficient Learning](label-efficient.md)
   - Semi/weakly-supervised · Active learning · Self-supervised · Zero-shot ·
     Distillation · SAM in 3D · Auto-labeling · Annotation tools
+- [🧊 3D Representations](representations.md)
+  - Point · Voxel · Mesh · NeRF · 3D Gaussian Splatting · Triplane · Octree ·
+    Occupancy · Multi-representation fusion
+- [✍️ 3D Data Annotation Methods](annotation-methods.md)
+  - Interactive labeling · SAM/LLM-assisted auto-labeling · Auto-labeling
+    pipelines · Active-learning annotation · Labeling protocols
 - [🗂️ Datasets](datasets.md)
   - Indoor · Outdoor LiDAR · Aerial / urban MLS · Synthetic · RGB-D
 - [📊 Benchmarks & Leaderboards](benchmarks.md)
@@ -64,6 +70,8 @@ details, caveats, and per-paper numbers live in [benchmarks.md](benchmarks.md).*
 | --- | --- |
 | [`papers.md`](papers.md) | Research papers, grouped by methodological family and year |
 | [`label-efficient.md`](label-efficient.md) | Label-efficient learning & efficient annotation (semi/weak supervision, active learning, SAM-assisted labeling, tools) |
+| [`representations.md`](representations.md) | 3D representations (point/voxel/mesh, NeRF, 3DGS, triplane, octree, occupancy, fusion) |
+| [`annotation-methods.md`](annotation-methods.md) | 3D data annotation methods (interactive, SAM/LLM-assisted, auto-labeling pipelines, protocols) |
 | [`datasets.md`](datasets.md) | Datasets with modality, scale, classes, and links |
 | [`benchmarks.md`](benchmarks.md) | Leaderboards, evaluation metrics, and official toolkits |
 | [`projects.md`](projects.md) | Open-source frameworks and codebases |
