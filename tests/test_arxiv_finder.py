@@ -91,6 +91,39 @@ class TestPaperFinder(unittest.TestCase):
         self.assertNotIn("2312.10035", content)       # deduped
         self.assertNotIn("2501.00001", content)       # outside window
 
+    def test_exclude_file_dedup(self):
+        # A candidate already reported in an open digest issue must be
+        # excluded via --exclude-file (daily-run quietness).
+        with tempfile.NamedTemporaryFile("w", suffix=".md", delete=False) as f:
+            f.write("PTv3 [arXiv:2312.10035](https://arxiv.org/abs/2312.10035).")
+            md_path = f.name
+        with tempfile.NamedTemporaryFile("w", suffix=".txt", delete=False) as f:
+            f.write("2608.12345\n")  # reported in the open issue
+            excl_path = f.name
+        out = tempfile.mktemp(suffix=".md")
+        original_fetch = apf.fetch_hf_papers
+        apf.fetch_hf_papers = lambda max_per_query=60, retries=3: load_hf_fixture()
+        old_argv = sys.argv
+        sys.argv = ["arxiv_paper_finder.py", "--days", "60", "--exclude", md_path,
+                    "--exclude-file", excl_path, "--output", out, "--source", "hf"]
+        try:
+            rc = apf.main()
+        finally:
+            sys.argv = old_argv
+            apf.fetch_hf_papers = original_fetch
+        self.assertEqual(rc, 0)
+        with open(out, encoding="utf-8") as f:
+            content = f.read()
+        self.assertNotIn("2608.12345", content)   # excluded via issue file
+        self.assertNotIn("54321", content)        # 2D/medical filtered
+        self.assertNotIn("2312.10035", content)   # in papers.md
+        self.assertNotIn("2501.00001", content)   # outside window
+        self.assertEqual(content.strip(), "")     # nothing left -> quiet run
+        os.unlink(md_path)
+        os.unlink(excl_path)
+        if os.path.exists(out):
+            os.unlink(out)
+
 
 if __name__ == "__main__":
     unittest.main()

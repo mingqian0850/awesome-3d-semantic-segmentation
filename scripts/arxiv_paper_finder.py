@@ -194,11 +194,26 @@ def collect_known_ids(exclude_files) -> set:
     return known
 
 
+def collect_excluded_ids(path: str) -> set:
+    """Collect arXiv ids from a plain-text file (one id per line)."""
+    ids = set()
+    try:
+        with open(path, encoding="utf-8") as f:
+            for line in f:
+                m = re.search(r"(\d{4}\.\d{4,5})", line)
+                if m:
+                    ids.add(m.group(1).lower())
+    except OSError:
+        pass
+    return ids
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--days", type=int, default=60, help="look-back window in days (HF index lags arXiv by ~1.5 months)")
     parser.add_argument("--max", type=int, default=60, help="max results per query")
     parser.add_argument("--exclude", nargs="*", default=["papers.md"], help="markdown files to de-duplicate against")
+    parser.add_argument("--exclude-file", default="", help="plain-text file with arXiv ids to exclude (one per line)")
     parser.add_argument("--output", default="new_papers.md", help="output markdown path")
     parser.add_argument("--source", choices=["hf", "arxiv"], default="hf", help="paper source API")
     parser.add_argument("--api-url", default=ARXIV_API, help="arXiv API endpoint (mainly for testing)")
@@ -207,6 +222,8 @@ def main() -> int:
 
     cutoff = datetime.now(timezone.utc) - timedelta(days=args.days)
     known = collect_known_ids(args.exclude)
+    if args.exclude_file:
+        known |= collect_excluded_ids(args.exclude_file)
 
     if args.source == "hf":
         raw = fetch_hf_papers(max_per_query=args.max)

@@ -1,13 +1,15 @@
 name: paper-watch
 
 # Automatically detect new arXiv papers on 3D semantic segmentation and open
-# an issue with a candidate list, excluding papers already in papers.md.
+# an issue with a candidate list, excluding papers already in papers.md and
+# papers already reported in an open digest issue (so daily runs stay quiet
+# until genuinely new papers appear).
 # Run manually: Actions -> paper-watch -> Run workflow.
 
 on:
   schedule:
-    # Every Monday at 01:00 UTC
-    - cron: "0 1 * * 1"
+    # Daily at 01:00 UTC
+    - cron: "0 1 * * *"
   workflow_dispatch: {}
 
 permissions:
@@ -26,8 +28,22 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Collect arXiv IDs already reported in the open digest issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ISSUE_TITLE="📚 New 3D semantic segmentation papers (auto-detected)"
+          EXISTING=$(gh issue list --state open --search "in:title \"${ISSUE_TITLE}\"" --json number --jq '.[0].number' 2>/dev/null || true)
+          if [ -n "$EXISTING" ]; then
+            gh issue view "$EXISTING" --json body -q .body \
+              | grep -oE '[0-9]{4}\.[0-9]{4,5}' | sort -u > issue_reported_ids.txt || true
+            echo "::notice::Excluding $(wc -l < issue_reported_ids.txt) arXiv IDs already reported in issue #$EXISTING"
+          else
+            : > issue_reported_ids.txt
+          fi
+
       - name: Fetch recent papers
-        run: python3 scripts/arxiv_paper_finder.py --days 60 --exclude papers.md --output new_papers.md
+        run: python3 scripts/arxiv_paper_finder.py --days 60 --exclude papers.md --exclude-file issue_reported_ids.txt --output new_papers.md
 
       - name: Open or update the digest issue
         env:
