@@ -1,0 +1,47 @@
+--generation--
+TML? Report Issue Back to Abstract Download PDF Abstract 1 Introduction 2 AlphaEvolve 2.1 Task specification Evaluation. API. Flexibility in choosing the abstraction. 2.2 Prompt sampling 2.3 Creative generation Output format. Models used. 2.4 Evaluation Multiple scores. 2.5 Evolution 2.6 Distributed pipeline 3 Results 3.1 Faster matrix multiplication via finding novel algorithms for tensor decomposition 3.2 Finding tailored search algorithms for a wide range of open mathemati
+
+--generation--
+ess. Hopes of success here are driven by the breathtaking power of recent LLMs [ 32 , 76 ] , which can enhance their capabilities using test-time compute, and the rise of agents that combine language generation and action [ 114 , 88 ] . These advances have improved performance across a range of established benchmarks and accelerated discovery-oriented tasks like hypothesis generation [ 34 ] and experiment design [ 43 , 7 ] . However, getting LLM pipelines all the way to makin
+
+--hours--
+ire code file evolves up to 10-20 lines of code evolves up to hundreds of lines of code evolves code in Python evolves any language needs fast evaluation ( ≤ 20 \leq 20 min on 1 CPU) can evaluate for hours, in parallel, on accelerators millions of LLM samples used thousands of LLM samples suffice small LLMs used; no benefit from larger benefits from SOTA LLMs minimal context (only previous solutions) rich context and feedback in prompts optimizes single metric can simultaneou
+
+--hours--
+on, or they can be used to discard solutions when a criterion is not fulfilled. • Parallelized evaluation : the sample efficiency of AlphaEvolve makes it feasible to spend on the order of 100 compute-hours to evaluate any new solution. However, unless individual evaluations are parallelized to reduce their wall-clock duration, this can slow down the rate at which new generations appear, limiting the ability of the evolutionary algorithm to apply several consecutive mutations.
+
+--wall-clock--
+the sample efficiency of AlphaEvolve makes it feasible to spend on the order of 100 compute-hours to evaluate any new solution. However, unless individual evaluations are parallelized to reduce their wall-clock duration, this can slow down the rate at which new generations appear, limiting the ability of the evolutionary algorithm to apply several consecutive mutations. In many applications, evaluation is embarrassingly parallel (for example, running a search algorithm from m
+
+--self--
+cheduling algorithm for data centers, found a functionally equivalent simplification in the circuit design of hardware accelerators, and accelerated the training of the LLM underpinning AlphaEvolve itself. Furthermore, AlphaEvolve discovered novel, provably correct algorithms that surpass state-of-the-art solutions on a spectrum of problems in mathematics and computer science, significantly expanding the scope of prior automated discovery methods ( Romera-Paredes et al. , 202
+
+--self--
+ and function. It is applicable both to problems where discovering new algorithms is the intrinsic goal, as well as to the broad range of problems where the solution of interest is not an algorithm itself but an algorithm can describe how that solution is to be constructed or found. In the latter case, discovering the algorithm is only an instrumental goal, but it turns out to be a surprisingly effective strategy compared to searching for the solution directly [ 83 ] . The id
+
+--training--
+oogle, AlphaEvolve developed a more efficient scheduling algorithm for data centers, found a functionally equivalent simplification in the circuit design of hardware accelerators, and accelerated the training of the LLM underpinning AlphaEvolve itself. Furthermore, AlphaEvolve discovered novel, provably correct algorithms that surpass state-of-the-art solutions on a spectrum of problems in mathematics and computer science, significantly expanding the scope of prior automated 
+
+--training--
+ph, checks whether the property holds, and then simply returns the size of the graph as the score. In more complicated cases, the function h h might involve performing an evolved search algorithm, or training and evaluating a machine learning model. API. To support evolving multiple components across a codebase, AlphaEvolve exposes an input API where blocks of code can be annotated as to-be-evolved-by-the-system; see Figure 3(a) for an illustration. This design facilitates in
+
+--LLM underpinning--
+ve developed a more efficient scheduling algorithm for data centers, found a functionally equivalent simplification in the circuit design of hardware accelerators, and accelerated the training of the LLM underpinning AlphaEvolve itself. Furthermore, AlphaEvolve discovered novel, provably correct algorithms that surpass state-of-the-art solutions on a spectrum of problems in mathematics and computer science, significantly expanding the scope of prior automated discovery method
+
+--48 scalar--
+automated discovery methods ( Romera-Paredes et al. , 2023 ). Notably, AlphaEvolve developed a search algorithm that found a procedure to multiply two 4 × 4 4\times 4 complex-valued matrices using 48 48 scalar multiplications; offering the first improvement, after 56 years, over Strassen’s algorithm in this setting. We believe AlphaEvolve and coding agents like it can have a significant impact in improving solutions of problems across many areas of science and computation. 1 
+
+--Strassen--
+ve developed a search algorithm that found a procedure to multiply two 4 × 4 4\times 4 complex-valued matrices using 48 48 scalar multiplications; offering the first improvement, after 56 years, over Strassen’s algorithm in this setting. We believe AlphaEvolve and coding agents like it can have a significant impact in improving solutions of problems across many areas of science and computation. 1 Introduction Discovering new high-value knowledge, such as making a novel scient
+
+--Strassen--
+iously [ 26 ] . Despite being general-purpose, AlphaEvolve goes beyond [ 26 ] , improving the SOTA for 14 matrix multiplication algorithms; notably, for 4 × 4 4\times 4 matrices, AlphaEvolve improves Strassen ( 1969 )’s algorithm by discovering an algorithm using 48 multiplications to multiply 4 × 4 4\times 4 complex-valued matrices. 1 1 1 These discovered algorithms as well as our other new mathematical results can be found at https://colab.research.google.com/github/google-
+
+--scheduling algorithm--
+ch by applying it to a number of important computational problems. When applied to optimizing critical components of large-scale computational stacks at Google, AlphaEvolve developed a more efficient scheduling algorithm for data centers, found a functionally equivalent simplification in the circuit design of hardware accelerators, and accelerated the training of the LLM underpinning AlphaEvolve itself. Furthermore, AlphaEvolve discovered novel, provably correct algorithms th
+
+--verification--
+rix multiplication unit. The optimization objectives were to reduce both area and power consumption while preserving the component’s core functionality. Crucially, the final proposal must pass robust verification methods to confirm that the modified circuit maintains functional correctness. AlphaEvolve was able to find a simple code rewrite that removed unnecessary bits, a change validated by TPU designers for correctness. While this specific improvement was also independentl
+
+--verification--
+hm to multiply 4 × 4 4\times 4 matrices ( 3/3 ). Here hyper is a user-provided library for generating hyperparameter sweeps. Appendix B Details of mathematical discoveries of AlphaEvolve The data and verification code for all constructions reported in this section appear in the accompanying Google Colab . B.1 First autocorrelation inequality For any function f : ℝ → ℝ f:\mathbb{R}\rightarrow\mathbb{R} , define the autoconvolution of f f as f ∗ f ⁡ ( t ) ≔ ∫ ℝ f ⁡ ( t − x ) ​ 
