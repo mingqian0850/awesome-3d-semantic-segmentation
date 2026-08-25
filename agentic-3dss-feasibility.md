@@ -1,6 +1,7 @@
 # 智能体自进化做 3D 语义分割:可行性调研与系统对比报告
 
 > 调研日期:2026-08 · 范围:LLM 驱动的自进化/自主 ML 研究系统对 3D 语义分割(点云/LiDAR)的适用性
+> 配套落地文档:[`agentic-3dss-implementation.md`](agentic-3dss-implementation.md)(前提条件、标签引擎架构、第一周验证实验、分阶段执行)
 > 配套调研笔记(原始证据与逐条来源 URL):
 > - `research-notes/ml-agent-systems.md` — 通用 ML 工程 agent 系统(AIDE / MLAgentBench / MLGym / InnoGym / DS-Agent / MLE-bench / AutoML)
 > - `research-notes/self-evolution-loops.md` — 自进化 / 进化式搜索闭环(AI Scientist / FunSearch / AlphaEvolve / AgentBreeder / POISE / HSI / RSI 综述)
