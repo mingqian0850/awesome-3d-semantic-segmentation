@@ -153,6 +153,33 @@ page (title, first author, venue, year, links, representative metrics).
 
 - **vFusedSeg3D: 3rd Place Solution for 2024 Waymo Open Dataset Challenge in Semantic Segmentation** — arXiv 2024. View-based fusion of LiDAR and camera (vision) features for 3D semantic segmentation. [arXiv:2408.15254](https://arxiv.org/abs/2408.15254).
 
+## 9. Latest highlights (CVPR 2026 · 3DV 2026 · arXiv 2026)
+
+*The freshest work at the time of writing (verified 2026-08 against CVF Open
+Access / arXiv). The field's center of gravity has clearly shifted from closed-set
+fully-supervised mIoU toward 3D Gaussian Splatting, open-vocabulary, unsupervised
+and reasoning-based segmentation.*
+
+**3D Gaussian Splatting × segmentation**
+- **PointGS: Semantic-Consistent Unsupervised 3D Point Cloud Segmentation with 3D Gaussian Splatting** — Song *et al.*, CVPR 2026. Unsupervised segmentation that lifts SAM 2D knowledge through 3DGS rendering with semantic consistency, removing the need for dense point-level annotations. [CVF](https://openaccess.thecvf.com/content/CVPR2026/html/Song_PointGS_Semantic-Consistent_Unsupervised_3D_Point_Cloud_Segmentation_with_3D_Gaussian_CVPR_2026_paper.html).
+- **REALM: An MLLM-Agent Framework for Open World 3D Reasoning Segmentation and Editing on Gaussian Splatting** — Shi *et al.*, CVPR 2026. An MLLM agent grounds ambiguous, reasoning-heavy instructions into precise 3D objects on 3DGS scenes, then supports editing. [CVF](https://openaccess.thecvf.com/content/CVPR2026/html/Shi_REALM_An_MLLM-Agent_Framework_for_Open_World_3D_Reasoning_Segmentation_CVPR_2026_paper.html) · [arXiv:2510.16410](https://arxiv.org/abs/2510.16410).
+
+**Open-vocabulary / label-free LiDAR**
+- **GeoGuide: Hierarchical Geometric Guidance for Open-Vocabulary 3D Semantic Segmentation** — Tao *et al.*, CVPR 2026. Argues that aligning 3D features to the 2D representation space restricts intrinsic 3D geometry; adds hierarchical geometric guidance instead. [CVF](https://openaccess.thecvf.com/content/CVPR2026/html/Tao_GeoGuide_Hierarchical_Geometric_Guidance_for_Open-Vocabulary_3D_Semantic_Segmentation_CVPR_2026_paper.html) · [arXiv:2603.26260](https://arxiv.org/abs/2603.26260).
+- **LOSC: LiDAR Open-voc Segmentation Consolidator** — valeo.ai, 3DV 2026 (Oral). Consolidates noisy 2D open-vocabulary predictions into coherent LiDAR segmentation. [Project](https://valeoai.github.io/publications/losc/) · [Code](https://github.com/valeoai/LOSC).
+- **Stream3Dv2: Geometric-Semantic Fusion Enhanced Streaming Zero-Shot 3D Scene Understanding** — arXiv 2026 (2608.21136). Streaming, training-free zero-shot 3D scene understanding with geometric-semantic fusion. [arXiv:2608.21136](https://arxiv.org/abs/2608.21136).
+
+**Interactive / unsupervised / cross-modal**
+- **S²AM3D: Scale-controllable Part Segmentation of 3D Point Clouds** — Su *et al.*, CVPR 2026 (Oral). One prompt point plus a continuous slider controls the granularity of part segmentation — scale-controllable, 2D-3D hybrid training. [CVF](https://openaccess.thecvf.com/content/CVPR2026/html/Su_S2AM3D_Scale-controllable_Part_Segmentation_of_3D_Point_Clouds_CVPR_2026_paper.html).
+- **GeoFree-CoSeg: Unsupervised Point Cloud-Image Cross-Modal Co-Segmentation Without Geometric Alignment** — Duan *et al.*, CVPR 2026. Co-segments common objects across point clouds and images *without* requiring geometric alignment. [CVF](https://openaccess.thecvf.com/content/CVPR2026/html/Duan_GeoFree-CoSeg_Unsupervised_Point_Cloud-Image_Cross-Modal_Co-Segmentation_Without_Geometric_Alignment_CVPR_2026_paper.html).
+
+**Continual / unified multimodal segmentation**
+- **SCOPE: Spatially Ordered Continual Learning for 3D Segmentation** — Xu *et al.*, CVPR 2026 (Findings). Uses spatial ordering of point clouds to fight catastrophic forgetting and pseudo-label drift when new classes arrive without full replay. [CVF](https://www.openaccess.thecvf.com/content/CVPR2026F/html/Xu_SCOPE_Spatially_Ordered_Continual_Learning_for_3D_Segmentation_CVPRF_2026_paper.html).
+- **UniD-Shift: Towards Unified Semantic Segmentation via Interpretable Shared-Private Multimodal Decomposition** — Zhang *et al.*, CVPR 2026 (Findings). Shared-private decomposition for stable cross-modal (LiDAR + image) fusion under sparse sampling and view-dependent distortion. [CVF](https://www.openaccess.thecvf.com/content/CVPR2026F/html/Zhang_UniD-Shift_Towards_Unified_Semantic_Segmentation_via_Interpretable_Shared-Private_Multimodal_Decomposition_CVPRF_2026_paper.html).
+
+**Adjacent (3D scene understanding)**
+- **NoPA: Non-Parametric Online 3D Scene Graph Generation** — Yeo *et al.*, arXiv 2026 (2607.00529). Replaces point clouds with a lightweight Gaussian distribution per object for real-time online 3D scene graphs. Auto-detected by this repo's [paper watcher](README.md#-automation). [arXiv:2607.00529](https://arxiv.org/abs/2607.00529).
+
 ---
 
 ## Verification notes

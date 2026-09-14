@@ -93,6 +93,10 @@ SAM-assisted auto-labeling, plus the annotation tools themselves.
 
 - **Affinity3D: Propagating Instance-Level Semantic Affinity for Zero-Shot Point Cloud Segmentation** — ACM MM 2024. Propagates instance-level semantic affinity from 2D foundation models for zero-shot point-cloud segmentation. [DOI:10.1145/3664647.3680651](https://doi.org/10.1145/3664647.3680651).
 
+- **Stream3Dv2: Geometric-Semantic Fusion Enhanced Streaming Zero-Shot 3D Scene Understanding** — arXiv 2026. Streaming, training-free zero-shot 3D scene understanding with geometric-semantic fusion. [arXiv:2608.21136](https://arxiv.org/abs/2608.21136). *Also in [papers.md §9](papers.md).*
+
+- **GeoGuide: Hierarchical Geometric Guidance for Open-Vocabulary 3D Semantic Segmentation** — Tao *et al.*, CVPR 2026. Argues that aligning 3D features to the 2D representation space restricts intrinsic 3D geometry; adds hierarchical geometric guidance instead. [CVF](https://openaccess.thecvf.com/content/CVPR2026/html/Tao_GeoGuide_Hierarchical_Geometric_Guidance_for_Open-Vocabulary_3D_Semantic_Segmentation_CVPR_2026_paper.html) · [arXiv:2603.26260](https://arxiv.org/abs/2603.26260).
+
 ## 6. Cross-modal distillation (2D/vision → 3D)
 
 *In main list:* 2DPASS (ECCV 2022, [2207.04397](https://arxiv.org/abs/2207.04397)) — see [papers.md §4](papers.md).
