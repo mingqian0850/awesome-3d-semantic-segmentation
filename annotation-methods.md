@@ -22,6 +22,8 @@ pipelines, active-learning annotation, labeling protocols).
 - **iSeg: Interactive 3D Segmentation via Interactive Attention** — Lang *et al.*, SIGGRAPH Asia 2024. Interactive-attention network for click-driven 3D segmentation, applicable to meshes, point clouds and scans. [arXiv:2404.03219](https://arxiv.org/abs/2404.03219) · [Project](https://threedle.github.io/iSeg/).
 
 **2024–2026**
+- **S²AM3D: Scale-controllable Part Segmentation of 3D Point Clouds** — Su *et al.*, CVPR 2026 (Oral). One prompt point plus a **continuous slider** controls segmentation granularity (whole object ↔ fine parts), trained with 2D-3D hybrid supervision — a scale-controllable interactive labeling primitive. [CVF](https://openaccess.thecvf.com/content/CVPR2026/html/Su_S2AM3D_Scale-controllable_Part_Segmentation_of_3D_Point_Clouds_CVPR_2026_paper.html). *Also in [papers.md §9](papers.md).*
+
 - **PinPoint3D: Fine-Grained 3D Part Segmentation from a Few Clicks** — Zhang *et al.*, arXiv 2025. Two-level forward mask-prediction architecture that outputs object-level *and* part-level masks from a few user clicks — fine-grained interactive part labeling. [arXiv:2509.25970](https://arxiv.org/abs/2509.25970).
 
 - **ClickSeg3D: Few-Click Interactive Segmentation via Semantic Embeddings** — Kang *et al.*, arXiv 2026. Few-click interactive 3D segmentation guided by semantic embeddings to propagate click information. [arXiv:2605.08925](https://arxiv.org/abs/2605.08925).
