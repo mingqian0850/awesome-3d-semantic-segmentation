@@ -101,7 +101,7 @@ page (title, first author, venue, year, links, representative metrics).
 
 - **PonderV2: Pave the Way for 3D Foundation Model with A Universal Pre-training Paradigm** — Yang *et al.*, arXiv 2023/24 (preprint). 3D-occupancy-prediction-based universal pre-training boosting 20+ downstream datasets. [arXiv:2310.08586](https://arxiv.org/abs/2310.08586) · [Weights](https://huggingface.co/HaoyiZhu/PonderV2).
 
-- **Point-MoE: Large-Scale Multi-Dataset Training with Mixture-of-Experts for 3D Semantic Segmentation** — UvA CV Lab, arXiv 2025. MoE training across datasets for cross-domain generalization at scale. [arXiv:2505.23926](https://arxiv.org/abs/2505.23926) · [Project](https://uva-computer-vision-lab.github.io/point-moe/).
+- **Point-MoE: Large-Scale Multi-Dataset Training with Mixture-of-Experts for 3D Semantic Segmentation** — UvA CV Lab, ICLR 2026 (arXiv 2025). MoE training across datasets for cross-domain generalization at scale. [arXiv:2505.23926](https://arxiv.org/abs/2505.23926) · [Project](https://uva-computer-vision-lab.github.io/point-moe/).
 
 - **SAS: Segment Any 3D Scene with Integrated 2D Priors** — arXiv 2025. Zero-shot 3D scene segmentation with integrated 2D priors; competitive vs fully-supervised & zero-shot methods on ScanNet/Matterport/nuScenes. [arXiv:2503.08512](https://arxiv.org/abs/2503.08512).
 
@@ -153,12 +153,12 @@ page (title, first author, venue, year, links, representative metrics).
 
 - **vFusedSeg3D: 3rd Place Solution for 2024 Waymo Open Dataset Challenge in Semantic Segmentation** — arXiv 2024. View-based fusion of LiDAR and camera (vision) features for 3D semantic segmentation. [arXiv:2408.15254](https://arxiv.org/abs/2408.15254).
 
-## 9. Latest highlights (CVPR 2026 · 3DV 2026 · arXiv 2026)
+## 9. Latest highlights (CVPR 2026 · ICLR 2026 · NeurIPS 2025 · 3DV 2026 · arXiv 2026)
 
-*The freshest work at the time of writing (verified 2026-08 against CVF Open
-Access / arXiv). The field's center of gravity has clearly shifted from closed-set
-fully-supervised mIoU toward 3D Gaussian Splatting, open-vocabulary, unsupervised
-and reasoning-based segmentation.*
+*The freshest work at the time of writing (verified against CVF Open Access /
+ICLR & NeurIPS proceedings / arXiv). The field's center of gravity has clearly
+shifted from closed-set fully-supervised mIoU toward 3D Gaussian Splatting,
+open-vocabulary, unsupervised, robustness and reasoning-based segmentation.*
 
 **3D Gaussian Splatting × segmentation**
 - **PointGS: Semantic-Consistent Unsupervised 3D Point Cloud Segmentation with 3D Gaussian Splatting** — Song *et al.*, CVPR 2026. Unsupervised segmentation that lifts SAM 2D knowledge through 3DGS rendering with semantic consistency, removing the need for dense point-level annotations. [CVF](https://openaccess.thecvf.com/content/CVPR2026/html/Song_PointGS_Semantic-Consistent_Unsupervised_3D_Point_Cloud_Segmentation_with_3D_Gaussian_CVPR_2026_paper.html).
@@ -176,6 +176,15 @@ and reasoning-based segmentation.*
 **Continual / unified multimodal segmentation**
 - **SCOPE: Spatially Ordered Continual Learning for 3D Segmentation** — Xu *et al.*, CVPR 2026 (Findings). Uses spatial ordering of point clouds to fight catastrophic forgetting and pseudo-label drift when new classes arrive without full replay. [CVF](https://www.openaccess.thecvf.com/content/CVPR2026F/html/Xu_SCOPE_Spatially_Ordered_Continual_Learning_for_3D_Segmentation_CVPRF_2026_paper.html).
 - **UniD-Shift: Towards Unified Semantic Segmentation via Interpretable Shared-Private Multimodal Decomposition** — Zhang *et al.*, CVPR 2026 (Findings). Shared-private decomposition for stable cross-modal (LiDAR + image) fusion under sparse sampling and view-dependent distortion. [CVF](https://www.openaccess.thecvf.com/content/CVPR2026F/html/Zhang_UniD-Shift_Towards_Unified_Semantic_Segmentation_via_Interpretable_Shared-Private_Multimodal_Decomposition_CVPRF_2026_paper.html).
+
+**Robustness, open-set & new-class discovery (ICLR 2026 · NeurIPS 2025)**
+- **GOOD: Geometry-guided Out-of-Distribution Modeling for Open-set Test-time Adaptation in Point Cloud Semantic Segmentation** — Qu *et al.*, ICLR 2026. Geometry-guided OOD modeling for test-time adaptation that explicitly handles *open-set* shifts (unknown classes), not just covariate shift from weather/density. [ICLR 2026](https://iclr.cc/virtual/2026/poster/10010350) · [OpenReview](https://openreview.net/pdf?id=HyNWlZd4iO).
+- **Adaptive Augmentation-Aware Latent Learning for Robust LiDAR Semantic Segmentation** — Li *et al.*, ICLR 2026. Moves weather augmentation into latent space, where input-space augmentation alone struggles to model adverse-condition distribution shifts. [arXiv:2603.01074](https://arxiv.org/abs/2603.01074).
+- **Novel Class Discovery for Point Cloud Segmentation via Joint Learning of Causal Representation and Reasoning** — NeurIPS 2025. Reformulates 3D novel-class discovery with a structural causal model, learning causal representation and reasoning jointly. [NeurIPS 2025](https://proceedings.neurips.cc/paper_files/paper/2025/file/97d008f7873b8dd55cb6dd343fc4386f-Paper-Conference.pdf).
+
+**Efficiency & architecture studies (NeurIPS 2025 · arXiv 2026)**
+- **How Many Tokens Do 3D Point Cloud Transformer Architectures Really Need?** — Tran *et al.*, NeurIPS 2025. Systematic study of token counts and redundancy in 3D point-cloud transformers, with guidance for efficient designs. [NeurIPS 2025](https://proceedings.neurips.cc/paper_files/paper/2025/file/1418afb35f5fa69b4f7af27b6480101b-Paper-Conference.pdf) · [arXiv:2511.05449](https://arxiv.org/abs/2511.05449).
+- **Vanilla ViT for Automotive Point Cloud Semantic Segmentation (VaViT)** — valeo.ai, arXiv 2026. Shows that a plain ViT backbone, properly adapted, is competitive for automotive LiDAR segmentation. [arXiv:2605.31177](https://arxiv.org/abs/2605.31177) · [Code](https://github.com/valeoai/VaViT).
 
 **Adjacent (3D scene understanding)**
 - **NoPA: Non-Parametric Online 3D Scene Graph Generation** — Yeo *et al.*, arXiv 2026 (2607.00529). Replaces point clouds with a lightweight Gaussian distribution per object for real-time online 3D scene graphs. Auto-detected by this repo's [paper watcher](README.md#-automation). [arXiv:2607.00529](https://arxiv.org/abs/2607.00529).
