@@ -1,0 +1,35 @@
+--fitness--
+ and then a program within that cluster (Extended Data Fig. 3 ). This approach, which aims to preserve diversity 55 , 56 , is related to Lexicase 57 in that both approaches consider a set of test cases for scoring an individual, and it is related to fitness uniform optimization 58 , which also clusters individuals on the basis of their fitness value; however, we sample the clusters on the basis of their score instead of uniformly, as detailed next. Extended Data Fig. 3. Program clusters within islands. Open in a new tab Within each island, prog
+
+--fitness--
+ms to preserve diversity 55 , 56 , is related to Lexicase 57 in that both approaches consider a set of test cases for scoring an individual, and it is related to fitness uniform optimization 58 , which also clusters individuals on the basis of their fitness value; however, we sample the clusters on the basis of their score instead of uniformly, as detailed next. Extended Data Fig. 3. Program clusters within islands. Open in a new tab Within each island, programs are grouped into clusters based on their signature (i.e., their scores on several i
+
+--crossover--
+to our approach is the use of LLMs as mutation operators on code, and ref. 3 was the first study to show that coupling an LLM with a programmatic way of scoring a solution can lead to a self-improvement loop. In refs. 16 – 19 , the LLM was used as a crossover operator rather than a mutation one, that is, the LLM prompts are composed of several functions, similarly to FunSearch. In refs. 3 , 16 , the task was to improve code that generated bidimensional virtual robots that could move as far as possible in a given simulated terrain (ref. 16 also 
+
+--crossover--
+is used for symbolic regression applications 74 , 75 and discovery of optimization algorithms 76 among others. In this broad sense, combining LLMs with evolution can be seen as an instance of genetic programming with the LLM acting as a mutation and crossover operator. However, using an LLM mitigates several issues in traditional genetic programming 51 , as shown in Supplementary Information Appendix A and discussed in ref. 3 . Indeed, genetic programming methods require defining several parameters, chief among them the set of allowed mutation 
+
+--crossover--
+hine Learning (Addison-Wesley, 1989). 15. Koza JR. Genetic programming as a means for programming computers by natural selection. Stat. Comput. 1994;4:87–112. doi: 10.1007/BF00175355. [ DOI ] [ Google Scholar ] 16. Meyerson, E. et al. Language model crossover: variation through few-shot prompting. Preprint at https://arxiv.org/abs/2302.12170 (2023). 17. Chen, A., Dohan, D. M. &amp; So, D. R. EvoPrompting: language models for code-level neural architecture search. Preprint at https://arxiv.org/abs/2302.14838 (2023). 18. Zheng, M. et al. Can GPT-
+
+--sampling--
+model, that is, without any fine-tuning on our problems. We use Codey, an LLM built on top of the PaLM2 model family 25 , which has been fine-tuned on a large corpus of code and is publicly accessible through its API 26 . Because FunSearch relies on sampling from an LLM extensively, an important performance-defining tradeoff is between the quality of the samples and the inference speed of the LLM. In practice, we have chosen to work with a fast-inference model (rather than slower-inference, higher-quality), and the results in the paper are obta
+
+--sampling--
+ntations of ‘priority’ and evaluators score the proposals by executing the ‘main’ function on user-specified inputs. Our distributed system offers several advantages. First, it naturally leverages parallelism across different tasks: for example, LLM sampling and evaluation are performed concurrently. Second, it enables scaling to more than one sampler and evaluator, which would be a very limiting setup, considering that evaluation can take minutes for many problems of interest. Running evaluators in parallel considerably broadens the scope of t
+
+--sampling--
+ow. In our experiments, we typically use 15 samplers and 150 CPU evaluators (can be served on five CPU servers each running 32 evaluators in parallel). See Supplementary Information Appendix A for more details. Also, because of the randomness of LLM sampling and the evolutionary procedure, for some problems we run several experiments to get the best reported results. See Methods and Supplementary Information Appendix A.3 for a full statistical analysis. We now describe some of the new discoveries made by FunSearch in two different fields: pure 
+
+--islands--
+ a population of correct programs, which are then sampled to create prompts. Preserving and encouraging diversity of programs in the database is crucial to enable exploration and avoid being stuck in local optima. To encourage diversity, we adopt an islands model, also known as a multiple population and multiple-deme model 27 , 28 , which is a genetic algorithm approach. Several islands, or subpopulations, are created and evolved independently. To sample from the program database, we first sample an island and then sample a program within that 
+
+--islands--
+ database is crucial to enable exploration and avoid being stuck in local optima. To encourage diversity, we adopt an islands model, also known as a multiple population and multiple-deme model 27 , 28 , which is a genetic algorithm approach. Several islands, or subpopulations, are created and evolved independently. To sample from the program database, we first sample an island and then sample a program within that island, favouring higher-scoring and shorter programs (see Methods for the exact mechanism). Crucially, we let information flow betw
+
+--islands--
+ndently. To sample from the program database, we first sample an island and then sample a program within that island, favouring higher-scoring and shorter programs (see Methods for the exact mechanism). Crucially, we let information flow between the islands by periodically discarding the programs in the worst half of the islands (corresponding to the ones whose best individuals have the lowest scores). We replace the programs in those islands with a new population, initialized by cloning one of the best individuals from the surviving islands. P
+
+--cost of experiments--
+ry method that encourages exploration and avoids local optima. Finally, leveraging the highly parallel nature of FunSearch, we scale it asynchronously, considerably broadening the scope of this approach to find new results, while keeping the overall cost of experiments low. We show the surprising effectiveness of FunSearch on several use cases. We consider a fundamental problem in extremal combinatorics, namely, the cap set problem 21 , 22 . FunSearch demonstrates the existence of hitherto unknown constructions that go beyond existing ones, inc
