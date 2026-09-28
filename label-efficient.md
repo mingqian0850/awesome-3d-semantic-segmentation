@@ -97,6 +97,8 @@ SAM-assisted auto-labeling, plus the annotation tools themselves.
 
 - **GeoGuide: Hierarchical Geometric Guidance for Open-Vocabulary 3D Semantic Segmentation** — Tao *et al.*, CVPR 2026. Argues that aligning 3D features to the 2D representation space restricts intrinsic 3D geometry; adds hierarchical geometric guidance instead. [CVF](https://openaccess.thecvf.com/content/CVPR2026/html/Tao_GeoGuide_Hierarchical_Geometric_Guidance_for_Open-Vocabulary_3D_Semantic_Segmentation_CVPR_2026_paper.html) · [arXiv:2603.26260](https://arxiv.org/abs/2603.26260).
 
+- **EPSegFZ: Efficient Point Cloud Semantic Segmentation for Few- and Zero-Shot Scenarios with Language Guidance** — AAAI 2026. Language-guided efficient architecture covering both few-shot and zero-shot point-cloud segmentation. [AAAI 2026](https://ojs.aaai.org/index.php/AAAI/article/view/37953) · [arXiv:2511.11700](https://arxiv.org/abs/2511.11700).
+
 ## 6. Cross-modal distillation (2D/vision → 3D)
 
 *In main list:* 2DPASS (ECCV 2022, [2207.04397](https://arxiv.org/abs/2207.04397)) — see [papers.md §4](papers.md).

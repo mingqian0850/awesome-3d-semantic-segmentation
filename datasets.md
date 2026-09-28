@@ -73,6 +73,8 @@ link · license (when known).
 
 - **SUN RGB-D** — 2015. RGB-D (4 sensors: Kinect v1/v2, RealSense, Xtion); 10,335 RGB-D images; 37 classes (+unknown). Multi-task RGB-D benchmark suite (segmentation, detection, layout). [Official](https://3dvision.princeton.edu/projects/2015/SUNrgbd/) · Paper: Song *et al.*, CVPR 2015 ([open access](https://www.cv-foundation.org/openaccess/content_cvpr_2015/html/Song_SUN_RGB-D_A_2015_CVPR_paper.html)).
 
+- **RGBD20K** — 2026. RGB-D; **160 fine-grained categories**, far surpassing the category diversity of NYUv2 (40) and SUN RGB-D (37), with high-quality annotations — proposed to drive more robust and general RGB-D semantic segmentation. [arXiv:2609.29028](https://arxiv.org/abs/2609.29028). *Auto-detected by this repo's [paper watcher](README.md#-automation).*
+
 ---
 
 ## Synthetic

@@ -186,6 +186,11 @@ open-vocabulary, unsupervised, robustness and reasoning-based segmentation.*
 - **How Many Tokens Do 3D Point Cloud Transformer Architectures Really Need?** — Tran *et al.*, NeurIPS 2025. Systematic study of token counts and redundancy in 3D point-cloud transformers, with guidance for efficient designs. [NeurIPS 2025](https://proceedings.neurips.cc/paper_files/paper/2025/file/1418afb35f5fa69b4f7af27b6480101b-Paper-Conference.pdf) · [arXiv:2511.05449](https://arxiv.org/abs/2511.05449).
 - **Vanilla ViT for Automotive Point Cloud Semantic Segmentation (VaViT)** — valeo.ai, arXiv 2026. Shows that a plain ViT backbone, properly adapted, is competitive for automotive LiDAR segmentation. [arXiv:2605.31177](https://arxiv.org/abs/2605.31177) · [Code](https://github.com/valeoai/VaViT).
 
+**Few-shot / zero-shot & trustworthy segmentation (AAAI 2026 · journals 2026)**
+- **EPSegFZ: Efficient Point Cloud Semantic Segmentation for Few- and Zero-Shot Scenarios with Language Guidance** — AAAI 2026. Language-guided efficient architecture targeting few-shot and zero-shot point-cloud segmentation. [AAAI 2026](https://ojs.aaai.org/index.php/AAAI/article/view/37953) · [arXiv:2511.11700](https://arxiv.org/abs/2511.11700).
+- **PatchFusion: Resilient LiDAR-camera Fusion for Point Cloud Semantic Segmentation in Autonomous Driving** — Sun *et al.*, ISPRS Journal of Photogrammetry and Remote Sensing 2026. Patch-level resilient fusion for LiDAR-camera segmentation. [DOI:10.1016/j.isprsjprs.2026.09.008](https://doi.org/10.1016/j.isprsjprs.2026.09.008).
+- **CARTN: Counterfactual Audit and Repair for Trust-Aware Multi-Signal Streaming LiDAR Segmentation** — Meng & Lin, Information Fusion 2026. Counterfactual auditing + repair for trustworthy multi-signal streaming LiDAR segmentation. [DOI:10.1016/j.inffus.2026.104809](https://doi.org/10.1016/j.inffus.2026.104809).
+
 **Adjacent (3D scene understanding)**
 - **NoPA: Non-Parametric Online 3D Scene Graph Generation** — Yeo *et al.*, arXiv 2026 (2607.00529). Replaces point clouds with a lightweight Gaussian distribution per object for real-time online 3D scene graphs. Auto-detected by this repo's [paper watcher](README.md#-automation). [arXiv:2607.00529](https://arxiv.org/abs/2607.00529).
 
